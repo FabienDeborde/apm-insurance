@@ -10,7 +10,7 @@ info:
   license:
     name: MIT
 servers:
-  - url: 'https://asia-northeast1-apm-cloud-prod.cloudfunctions.net/getPlan'
+  - url: 'https://asia-northeast1-apm-cloud-prod.cloudfunctions.net'
 paths:
   /insurance_plan:
     get:
