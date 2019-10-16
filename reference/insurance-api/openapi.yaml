@@ -1,4 +1,3 @@
-
 openapi: 3.0.0
 info:
   title: Insurance API
@@ -19,30 +18,34 @@ paths:
       responses:
         '200':
           description: OK
+        '400':
+          description: Bad Request
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  plan_name:
-                    type: string
-                  annual_payment:
-                    type: string
-                  one_time_payment:
+                  error:
                     type: string
       parameters:
         - schema:
             type: string
           in: query
           name: age
+          required: true
+          description: 世帯主の年齢
         - schema:
             type: string
           in: query
           name: adult_count
+          required: true
+          description: 世帯の構成：大人(満18歳以上)の人数
         - schema:
             type: string
           in: query
           name: kid_count
+          required: true
+          description: 世帯の構成：子供(満18歳未満)の人数
       description: Fetch the recommanded plan for given parameters.
       operationId: INSURANCE_PLAN
 components:
