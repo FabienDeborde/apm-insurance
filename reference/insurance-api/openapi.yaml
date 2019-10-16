@@ -1,0 +1,49 @@
+
+openapi: 3.0.0
+info:
+  title: Insurance API
+  version: '1.0'
+  description: かんたん自動お見積もりAPI
+  contact:
+    name: Fabien Deborde
+    email: d-fabien@goldkey.co.jp
+  license:
+    name: MIT
+servers:
+  - url: 'https://asia-northeast1-apm-cloud-prod.cloudfunctions.net/getPlan'
+paths:
+  /insurance_plan:
+    get:
+      summary: Get Plan
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  plan_name:
+                    type: string
+                  annual_payment:
+                    type: string
+                  one_time_payment:
+                    type: string
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: age
+        - schema:
+            type: string
+          in: query
+          name: adult_count
+        - schema:
+            type: string
+          in: query
+          name: kid_count
+      description: Fetch the recommanded plan for given parameters.
+      operationId: INSURANCE_PLAN
+components:
+  schemas: {}
