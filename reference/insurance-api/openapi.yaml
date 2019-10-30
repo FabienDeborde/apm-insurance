@@ -18,6 +18,36 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  plan_name:
+                    type: string
+                    description: プラン名
+                    example: 300万プラン
+                  yearly_amount:
+                    type: string
+                    description: 年払保険料
+                  bulk_amount:
+                    type: string
+                    description: "一括保険料\t"
+                  iid:
+                    type: string
+                    description: プランID
+                required:
+                  - plan_name
+                  - yearly_amount
+                  - bulk_amount
+                  - iid
+              examples:
+                例:
+                  value:
+                    plan_name: 300万プラン
+                    yearly_amount: '7,600円'
+                    bulk_amount: '13,000円'
+                    iid: KA3
         '400':
           description: Bad Request
           content:
